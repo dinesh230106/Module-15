@@ -89,8 +89,8 @@ Left Subtree elements:
 20 40 30
 
 ```
-RESULT
+## RESULT
 
 Thus, the Python program to build a Binary Search Tree (BST) using a built-in function was successfully executed and verified.
 
-## RESULT
+
