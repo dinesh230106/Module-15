@@ -23,35 +23,23 @@ To write a Python program to build a binary tree with a root, left, and right no
 # Name: DINESH KUMAR A
 # Ex.No: 15A - Build a Binary Tree with Float Values
 
+
 from binarytree import Node
-
-# Creating root node with float value
-root = Node(10.5)
-
-# Adding left and right children with float values
-root.left = Node(5.25)
-root.right = Node(15.75)
-
-# Printing the tree
-print("Binary Tree with float values:")
-print(root)
-
-# Converting tree to list
-tree_list = [root.value, root.left.value, root.right.value]
-print("\nList representation of tree:", tree_list)
+l=[]
+for i in range(0,3):
+   a=float(input())
+   l.append(a)
+root=Node(l[0])
+root.left=Node(l[1])
+root.right=Node(l[2])
+print("List of nodes :",list(root))
 
 ```
 
 ## OUTPUT
-```
-Binary Tree with float values:
-   10.5
-  /    \
-5.25    15.75
+<img width="822" height="139" alt="image" src="https://github.com/user-attachments/assets/b82a4b67-15b3-4b3a-bd4b-c109a61cbc24" />
 
-List representation of tree: [10.5, 5.25, 15.75]
 
-```
 
 ## RESULT
 Thus, the Python program to build a binary tree with floating-point values was successfully executed and verified.
