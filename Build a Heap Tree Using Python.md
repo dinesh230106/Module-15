@@ -21,38 +21,26 @@ To write a Python program to build a heap tree using appropriate Python package 
 ```
 # Reg.No: 212223060057
 # Name: DINESH KUMAR A
-# Ex.No: 15D - Build a Heap Tree Using Python
-
-import heapq
-
-def heaptree(H):
-    heapq.heapify(H)
-    print("Heap tree created from the list:")
-    print(H)
-
-# Main Program
-n = int(input("Enter number of elements: "))
-H = []
-for i in range(n):
-    val = int(input(f"Enter element {i+1}: "))
-    H.append(val)
-
-heaptree(H)
+from binarytree import heap,build,Node
+def min_max_heap(L): 
+    x=L
+    t=build(x)
+    for i in (t.values):
+        print(i,"-->",end='')
+    if (t.is_complete):
+        print("\nComplete binary tree")
+        if (t.is_max_heap):
+            print("\nMax heap tree")
+        else:
+            print("\nMin heap tree")
+    else:
+        print("\nNot a Complete binary tree")
 
 ```
 
 ## OUTPUT
-```
-Enter number of elements: 5
-Enter element 1: 20
-Enter element 2: 10
-Enter element 3: 30
-Enter element 4: 5
-Enter element 5: 15
-Heap tree created from the list:
-[5, 10, 30, 20, 15]
+<img width="1126" height="288" alt="image" src="https://github.com/user-attachments/assets/82905f2e-2196-477a-a0ca-64f568f6ec24" />
 
-```
 
 ## RESULT
 Thus, the Python program to build a heap tree using the heapq module was successfully executed and verified.
