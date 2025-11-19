@@ -24,48 +24,57 @@ To write a Python program to build and evaluate the given Expression tree.
 ```
 # Reg.No: 212223060057
 # Name: DINESH KUMAR A
-# Ex.No: 15E - Build and Evaluate an Expression Tree
-
 class Node:
-    def __init__(self, value):
-        self.value = value
-        self.left = None
-        self.right = None
+    def __init__(self, val, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+ 
 
+def isLeaf(node):
+    return node.left is None and node.right is None
+ 
+def process(op, x, y):
+    if op =='+':
+        return x + y
+    if op == '-':
+        return x - y
+    if op == '*':
+        return x * y
+    if op == '/':
+        return x / y
+ 
 def evaluate(root):
-    if root.left is None and root.right is None:
-        return float(root.value)
-    left_val = evaluate(root.left)
-    right_val = evaluate(root.right)
-    if root.value == '+':
-        return left_val + right_val
-    elif root.value == '-':
-        return left_val - right_val
-    elif root.value == '*':
-        return left_val * right_val
-    elif root.value == '/':
-        return left_val / right_val
 
-# Building expression tree for: (3 + ((5+9) * 2))
+    if root is None:
+        return 0 
+  
+    if isLeaf(root):
+        return float(root.val)
+    
+    x = evaluate(root.left)
+    y = evaluate(root.right)
+    return (process(root.val, x, y))
+    
+
+
 root = Node('+')
-root.left = Node('3')
-root.right = Node('*')
-root.right.left = Node('+')
-root.right.left.left = Node('5')
-root.right.left.right = Node('9')
-root.right.right = Node('2')
-
-# Evaluating the expression tree
-result = evaluate(root)
-print("The result of the expression tree is:", result)
+root.left = Node('*')
+root.right= Node('/')
+root.left.left = Node('-')
+root.left.right = Node(5)
+root.right.left = Node(21)
+root.right.right = Node(7)
+root.left.left.left = Node(10)
+root.left.left.right = Node(5)
+ 
+print('The value of the expression tree is',evaluate(root))
 
 ```
 
 ## OUTPUT:
-```
-The result of the expression tree is: 31.0
+<img width="1023" height="157" alt="image" src="https://github.com/user-attachments/assets/c20cf3ea-d976-4d0a-8aa2-821574c412b8" />
 
-```
 
 ## RESULT:
 Thus, the Python program to build and evaluate an Expression Tree was successfully executed and verified.
