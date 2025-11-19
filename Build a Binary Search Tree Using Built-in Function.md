@@ -26,69 +26,41 @@ To write a Python program to build a binary search tree using a built-in functio
 # Name: DINESH KUMAR A
 # Ex.No: 15B - Build a Binary Search Tree Using Built-in Function
 
-class Node:
-    def __init__(self, key):
-        self.left = None
-        self.right = None
-        self.val = key
-
-def _build_bst_from_sorted_values(arr):
-    if not arr:
+from binarytree import Node
+def _build_bst_from_sorted_values(sorted_values):
+    
+    if len(sorted_values) == 0:
         return None
-    mid = len(arr) // 2
-    root = Node(arr[mid])
-    root.left = _build_bst_from_sorted_values(arr[:mid])
-    root.right = _build_bst_from_sorted_values(arr[mid+1:])
-    return root
+    mid_index = len(sorted_values) // 2
+    root = Node(sorted_values[mid_index])
+    root.left = _build_bst_from_sorted_values(sorted_values[:mid_index])
+    root.right = _build_bst_from_sorted_values(sorted_values[mid_index + 1 :])  
+    return (root)
 
-def postorder(root):
-    if root:
-        postorder(root.left)
-        postorder(root.right)
-        print(root.val, end=' ')
+def right_subtree(l):
+  print("Right Subtree : ")
+  for i in l[2].values:
+    print(i,"-->",end="")
+  return 
 
-def left_subtree(root):
-    if root and root.left:
-        print("\nLeft Subtree elements:")
-        postorder(root.left)
-    else:
-        print("\nNo left subtree")
+a=[]
+size=int(input())
+for i in range(0,size):
+  val=int(input())
+  a.append(val)
+x=sorted(a)
 
-# Main Program
-n = int(input("Enter number of elements: "))
-a = []
-for i in range(n):
-    val = int(input(f"Enter element {i+1}: "))
-    a.append(val)
 
-a.sort()
-root = _build_bst_from_sorted_values(a)
-
-print("\nPostorder Traversal of BST:")
-postorder(root)
-
-left_subtree(root)
+l=_build_bst_from_sorted_values(x)
+print("Postorder :",l.postorder)
+right_subtree(l)
+print("\nIs this a Binary Search Tree? ",l.is_bst)
 
 ```
 
 ## OUTPUT
-```
-Enter number of elements: 7
-Enter element 1: 50
-Enter element 2: 30
-Enter element 3: 70
-Enter element 4: 20
-Enter element 5: 40
-Enter element 6: 60
-Enter element 7: 80
+<img width="1137" height="538" alt="image" src="https://github.com/user-attachments/assets/2ff56c69-e3b3-428d-9ffa-60071a4dc7c1" />
 
-Postorder Traversal of BST:
-20 40 30 60 80 70 50 
-
-Left Subtree elements:
-20 40 30
-
-```
 ## RESULT
 
 Thus, the Python program to build a Binary Search Tree (BST) using a built-in function was successfully executed and verified.
